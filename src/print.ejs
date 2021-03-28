@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatorio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css">
+    <style>
+        table {
+            width: 100%;
+        }
+        th{
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="m-8">
+    <h1 class="text-3xl mb-8">Listagem de passageiros</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Número do voo</td>
+                <td>Horário</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(passengers.length > 0) { %> 
+                <% passengers.forEach(passenger => { %> 
+            <tr>
+                <td><%= passenger.name %></td>
+                <td><%= passenger.flightNumber %></td>
+                <td><%= passenger.time %></td>
+
+            </tr>
+            <% }); %> 
+            <% } %> 
+        </tbody>
+
+        <tfoot>
+            <tr> <td colspan="2"> <%= passengers.length %> passegeiros</td></tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>
